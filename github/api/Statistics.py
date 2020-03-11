@@ -5,6 +5,7 @@ import sys
 
 class Statistics:
     ACCESS_TOKEN = ""
+    LANGUAGES = ["Java", "JavaScript", "C", "C++", "Python", "Go", "Rust"]
 
     def get_token(self) -> str:
         abs_path = sys.path[0]
@@ -14,7 +15,19 @@ class Statistics:
         self.ACCESS_TOKEN = file.read()
         file.close()
 
+    def get_languages(self):
+        github = Github(self.ACCESS_TOKEN)
 
-s = Statistics()
-s.get_token()
-print(s.ACCESS_TOKEN)
+        for language in self.LANGUAGES:
+            query = language + "+in:language"
+            result = github.search_repositories(query, 'stars')
+            print(f'Found {result.totalCount} repo(s) for ' + language)
+            # for repo in result:
+            #     print(repo.clone_url)
+
+
+stat = Statistics()
+stat.get_token()
+print("Your token is " + stat.ACCESS_TOKEN)
+stat.get_languages()
+
