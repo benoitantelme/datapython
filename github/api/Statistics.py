@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 from github import Github
 import os
 import sys
@@ -6,6 +8,7 @@ import sys
 class Statistics:
     ACCESS_TOKEN = ""
     LANGUAGES = ["Java", "JavaScript", "C", "C++", "Python", "Go", "Rust"]
+    MOST_STARRED = defaultdict(list)
 
     def get_token(self) -> str:
         abs_path = sys.path[0]
@@ -15,19 +18,19 @@ class Statistics:
         self.ACCESS_TOKEN = file.read()
         file.close()
 
-    def get_languages(self):
+    def get_most_starred_repos(self):
         github = Github(self.ACCESS_TOKEN)
 
         for language in self.LANGUAGES:
-            query = language + "+in:language"
+            query = language + "+in:language&sort=stars&order=desc"
             result = github.search_repositories(query, 'stars')
-            print(f'Found {result.totalCount} repo(s) for ' + language)
-            # for repo in result:
-            #     print(repo.clone_url)
+            for repo in result[:10]:
+                self.MOST_STARRED[language].append(repo)
 
 
 stat = Statistics()
 stat.get_token()
 print("Your token is " + stat.ACCESS_TOKEN)
-stat.get_languages()
+stat.get_most_starred_repos()
+print(stat.MOST_STARRED)
 
