@@ -130,3 +130,6 @@ dmypy.json
 
 # intellij
 .idea
+
+# token for github api (don't want to share that ..)
+github.token
