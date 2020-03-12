@@ -2,7 +2,7 @@
 
 c:\PROGRA~1\kafka_2.11-0.10.0.0\bin\windows\zookeeper-server-start.bat c:\PROGRA~1\kafka_2.11-0.10.0.0\config\zookeeper.properties
 c:\PROGRA~1\kafka_2.11-0.10.0.0\bin\windows\kafka-server-start.bat c:\PROGRA~1\kafka_2.11-0.10.0.0\config\server.properties
-c:\PROGRA~1\kafka_2.11-0.10.0.0\bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic numtest
+c:\PROGRA~1\kafka_2.11-0.10.0.0\bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic github_stats
 c:\PROGRA~1\kafka_2.11-0.10.0.0\bin\windows\kafka-topics.bat --list --zookeeper localhost:2181
 c:\PROGRA~1\kafka_2.11-0.10.0.0\bin\windows\kafka-topics.bat --delete --zookeeper localhost:2181  --topic numtest
 delete.topic.enable
