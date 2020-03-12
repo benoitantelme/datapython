@@ -10,6 +10,7 @@ consumer = KafkaConsumer(
      group_id='my-group',
      value_deserializer=lambda x: loads(x.decode('utf-8')))
 
+print("Waiting for messages")
 for message in consumer:
     message = message.value
     print('{} received'.format(message))

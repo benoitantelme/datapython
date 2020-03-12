@@ -13,7 +13,7 @@ class Statistics:
     def get_token(self) -> str:
         abs_path = sys.path[0]
         base_name = os.path.dirname(abs_path)
-        resources_path = os.path.join(base_name, ".." + os.path.sep + "resources" + os.path.sep + "github.token")
+        resources_path = os.path.join(base_name, 2*(".." + os.path.sep) + "resources" + os.path.sep + "github.token")
         file = open(resources_path, "r")
         self.ACCESS_TOKEN = file.read()
         file.close()
