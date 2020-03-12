@@ -13,4 +13,3 @@ class StatsProducer:
         for repo in repos:
             data = {language: jsonpickle.encode(repo)}
         self.producer.send('github_stats', value=data)
-        # sleep(1)
