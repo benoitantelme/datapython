@@ -14,7 +14,7 @@ class StatsConsumer:
         value_deserializer=lambda x: loads(x.decode('utf-8')))
 
     def wait_for_stats(self, stats: Stats):
-        print("Waiting for stats")
+        print("Waiting for stats in consumer")
         for message in self.consumer:
             message = message.value
             print('{} received'.format(message))
