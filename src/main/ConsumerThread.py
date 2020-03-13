@@ -4,10 +4,10 @@ from threading import Thread
 
 
 class ConsumerThread(Thread):
-    def __init__(self, cons: StatsConsumer, s: Stats):
+    def __init__(self, s: Stats):
         super().__init__()
-        self.cons = cons
+        self.consumer = StatsConsumer()
         self.stats = s
 
     def run(self):
-        self.cons.wait_for_stats(self.stats)
+        self.consumer.wait_for_stats(self.stats)
