@@ -12,4 +12,4 @@ class StatsProducer:
     def send_stats(self, language: str, repos: list):
         for repo in repos:
             data = {language: jsonpickle.encode(repo)}
-        self.producer.send('github_stats', value=data)
+            self.producer.send('github_stats', value=data)

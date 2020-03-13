@@ -15,7 +15,7 @@ t.start()
 
 # wait and print
 print("Server before sleep")
-sleep(20)
+sleep(30)
 print("Server After sleep")
 stats.print()
 print("After stats print")
